@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --canvas: #F7F6F2;
+    --surface: #ECEAE3;
+    --surface-raised: #FFFFFF;
+    --ink: #171717;
+    --charcoal: #555555;
+    --hairline: rgba(23, 23, 23, 0.11);
+
+    --obsidian: #171717;
+    --obsidian-surface: #222220;
+    --obsidian-ink: #F7F6F2;
+    --obsidian-muted: #A8A6A0;
+
+    /* Strict AmbiLux Logo Micro-Accents */
+    --brand-yellow: #F5A623;
+    --brand-red: #E52B38;
+    --brand-blue: #1685C7;
+    --brand-green: #159447;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--canvas);
+    color: var(--ink);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: var(--canvas);
+    color: var(--ink);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+    text-wrap: balance;
+  }
+
+  .font-mono-num {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand-yellow);
+    outline-offset: 3px;
+  }
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 36s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
+  }
+}
